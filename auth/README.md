@@ -13,4 +13,5 @@ npm i --save-dev @types/jest @types/supertest jest ts-jest supertest mongodb-mem
 ## Run
 ```
 npm start
+npm run test
 ```
