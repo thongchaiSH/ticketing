@@ -1,0 +1,81 @@
+@hostname = tiketing.dev
+@port = 433
+@host = {{hostname}}:{{port}}
+
+### Test 404
+GET https://{{hostname}}/api/users/xxx HTTP/1.1
+
+### Register
+POST https://{{hostname}}/api/users/signup HTTP/1.1
+content-type: application/json
+
+{
+    "email": "thongchai.sh7@gmaasdadil.com",
+    "password": "xxxxx"
+}
+
+###
+//ce4cfedccd0a8de9eea77a57546567294d1a758f9669fcdb87ed4be880b382db9b255d5bfda4d1ccfa9581abaa56c1409b6fdc43d5cf12c14a0b6963b9d8632c.f45a68d0d35a52f0
+//efc751709a4b99feb8eb9acfad3fe58a80132980d83bfd276c7a0a25c751d9757d240c41dae6370e56e010157b4c23df80ce049028b9b61265dc2e20d2bec226.08a3def7080b2dbb
+
+### Login
+POST https://{{hostname}}/api/users/signin HTTP/1.1
+content-type: application/json
+
+{
+    "email": "thongchai.sh7@gmaasdadil.com",
+    "password": "xxxxx"
+}
+### Get User
+GET https://{{hostname}}/api/users/currentuser HTTP/1.1
+
+### Logout
+POST https://{{hostname}}/api/users/signout HTTP/1.1
+
+### Create ticket
+POST https://{{hostname}}/api/tickets HTTP/1.1
+content-type: application/json
+
+{
+    "title": "titles2",
+    "price": 200
+} 
+
+
+### Get tickets
+GET https://{{hostname}}/api/tickets HTTP/1.1
+
+### Get ticket id
+GET https://{{hostname}}/api/tickets/604eed9636d2290018db2863 HTTP/1.1
+
+### Update 
+PUT https://{{hostname}}/api/tickets/60555c33efb6420018134456 HTTP/1.1
+content-type: application/json
+
+{
+    "title": "update",
+    "price": 99
+} 
+
+
+### Create Order
+POST https://{{hostname}}/api/orders HTTP/1.1
+content-type: application/json
+
+{
+    "ticketId":"6059ca89d20cac001893a9d6"
+} 
+
+### Get Orders
+GET https://{{hostname}}/api/orders HTTP/1.1
+
+
+
+### Create Payments
+POST https://{{hostname}}/api/payments HTTP/1.1
+content-type: application/json
+
+{
+    "orderId":"6059ca95817ee70018fd01d1",
+    "token":"tok_visa"
+} 
